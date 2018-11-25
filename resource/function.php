@@ -60,4 +60,25 @@ function display_message(){
     }
 }
 
+function send_message(){
+    if(isset($_POST['submit'])){
+        $to = "ghandri.sofiene@gmail.com";
+        $from_name = $_POST['name'];
+        $subject = $_POST['subject'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        $header = "From: {$from_name} {$email}";
+
+        $result = mail($to, $subject, $message, $header);
+        if(!$result){
+            set_message("try again");
+            redirect("contact.php");
+        }else{
+            set_message("message sent successfully");
+            redirect("contact.php");
+        }
+    }
+}
+
 ?>
