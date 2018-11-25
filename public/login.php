@@ -1,6 +1,6 @@
 <?php require_once("../resource/config.php"); ?>
 
-<?php include("../resource/header.php") ?>
+<?php include("../resource/head.php") ?>
 <body>
     <!-- Page Content -->
     <div class="container">

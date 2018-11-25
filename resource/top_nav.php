@@ -23,10 +23,10 @@
               <a class="nav-link" href="#">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="../public/contact.php">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
+                <a class="nav-link" href="../public/login.php">Login</a>
             </li>
           </ul>
         </div>

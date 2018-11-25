@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <?php include( "../resource/header.php");?>
+    <?php include("../resource/head.php");?>
 
     <!-- Navigation -->
    <?php include( "../resource/top_nav.php");?>

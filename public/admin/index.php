@@ -1,6 +1,6 @@
 <?php require_once("../../resource/config.php"); ?>
 
-<?php include(TEMPLATE_BACK . "/header.php"); ?>
+<?php include(TEMPLATE_BACK . "/head.php"); ?>
 
 <?php 
 

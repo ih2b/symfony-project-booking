@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include( "../resource/header.php");?>
+<?php include("../resource/head.php");?>
   <body>
 
 <?php include( "../resource/top_nav.php");?>

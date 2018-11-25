@@ -1,7 +1,7 @@
-<?php require_once("../resources/config.php"); ?>
+<?php require_once("../resource/config.php"); ?>
 
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
-
+<?php include("../resource/head.php") ?>
+<body>
          <!-- Contact Section -->
 
         <div class="container">
@@ -9,7 +9,7 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
                     <h3 class="section-subheading ">
-                        <?php display_message(); ?>
+
                     </h3>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <div class="col-lg-12">
                     <form name="sentMessage" id="contactForm" method="post" >
 
-                        <?php send_message(); ?>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -54,4 +54,5 @@
     <!-- /.container -->
 
 
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
+<?php include("../resource/footer.php") ?>
+</body>
