@@ -25,6 +25,74 @@ function fetch_array($result){
     return mysqli_fetch_array($result);
 }
 
+function get_product(){
+    $query =query("SELECT * FROM produit");
+    confirm($query);
+    while ($data = fetch_array($query)){
+        $prod=<<<DELIMETER
+        <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <a href="items.php?id= {$data['produit_id']}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="items.php?id= {$data['produit_id']}">{$data['produit_titre']}</a>
+                  </h4>
+                  <h5>{$data['produit_prix']} dinar</h5>
+                  <p class="card-text">{$data['produit_desc']}</p>
+                </div>
+                <div class="card-footer">
+                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id= {$data['produit_id']} ">view more</a>
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
+            </div>
+DELIMETER;
+            echo $prod;
+    }
+}
+
+// get catagory 
+
+
+function get_product_in_cat_page(){
+    $query =query("SELECT * FROM produit WHERE produit_categorie_id =".escape_string($_GET['id'])."");
+    confirm($query);
+    while ($data = fetch_array($query)){
+        $prod=<<<DELIMETER
+        <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <a href="items.php?id= {$data['produit_id']}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="items.php?id= {$data['produit_id']}">{$data['produit_titre']}</a>
+                  </h4>
+                  <h5>{$data['produit_prix']} dinar</h5>
+                  <p class="card-text">{$data['produit_desc']}</p>
+                </div>
+                <div class="card-footer">
+                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id= {$data['produit_id']} ">view more</a>
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
+            </div>
+DELIMETER;
+            echo $prod;
+    }
+}
+
+
+ function get_catagories(){
+    $query =query("SELECT * FROM categorie");
+    confirm($query);
+    while ($data = fetch_array($query)){
+        $cat=<<<DELIMETER
+<a href='category.php?id={$data['id_categorie']}' class='list-group-item'>{$data['titre_categorie']}</a>
+DELIMETER;
+            echo $cat;
+    }
+}
+
+
 function login_user(){
     if(isset($_POST['submit'])){
         $username = escape_string($_POST['username']);
@@ -62,15 +130,12 @@ function display_message(){
 
 function send_message(){
     if(isset($_POST['submit'])){
-
         $to = "fakherbourray@gmail.com";
         $from_name = $_POST['name'];
         $subject = $_POST['subject'];
         $email = $_POST['email'];
         $message = $_POST['message'];
-
         $headers = "From: {$from_name} {$email}";
-
         $result = mail($to, $subject, $message, $headers);
         
         if(!$result){
@@ -82,5 +147,6 @@ function send_message(){
         }
     }
 }
+
 
 ?>

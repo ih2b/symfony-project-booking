@@ -1,41 +1,44 @@
-<?php require_once("../resources/config.php"); ?>
+<?php require_once("../resource/config.php");?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?php include(TEMPLATE_FRONT . DS . "head.php") ?>
+  <?php include("../resource/head.php");?>
+
+  <body>
+
+     
+
+    <!-- Navigation -->
+   <?php include( "../resource/top_nav.php");?>
 
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-            <h1>A Warm Welcome!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <p><a class="btn btn-primary btn-large">Call to action!</a>
-            </p>
-        </header>
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">A Warm Welcome!</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+      </header>
 
-        <hr>
+      <!-- Page Features -->
+      <div class="row text-center">
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Latest Product</h3>
-            </div>
-        </div>
-        <!-- /.row -->
+     <?php  get_product_in_cat_page() ?>
+       
 
-        <!-- Page Features -->
-        <div class="row text-center">
-
-         <?php get_products_in_cat_page(); ?>
-
-
-        </div>
-        <!-- /.row -->
-
-      
+      </div>
+      <!-- /.row -->
 
     </div>
     <!-- /.container -->
 
+    <?php include( "../resource/footer.php");?>
 
-<?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
