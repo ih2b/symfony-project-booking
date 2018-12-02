@@ -70,7 +70,7 @@ function get_product_in_cat_page(){
                   <p class="card-text">{$data['produit_desc']}</p>
                 </div>
                 <div class="card-footer">
-                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id= {$data['produit_id']} ">view more</a>
+                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id={$data['produit_id']} ">view more</a>
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
               </div>
@@ -146,6 +146,37 @@ function send_message(){
             redirect("contact.php");
         }
     }
+}
+
+function cart(){
+    $_SESSION['item_quantity'] =0;
+    $_SESSION['item_total'] = 0;
+    foreach ($_SESSION as $name =>$value){
+        if($value > 0) {
+            if (substr($name, 0, 8) == 'produit_') {
+                $id = substr($name, 8, strlen($name)-8);
+                $query = query("SELECT * FROM produit WHERE produit_id = " . escape_string($id) . ";");
+                confirm($query);
+                $row = fetch_array($query);
+                $_SESSION['item_quantity'] +=1;
+                $_SESSION['item_total'] += $row['produit_prix'];
+                    $produit = <<<DELIMETER
+                    <tr>
+                        <td><a href="../public/items.php?id= {$row['produit_id']}"> {$row['produit_titre']}</a></td>
+                        <td>{$row['produit_prix']}</td>
+                        <td><a class="btn btn-danger" href="../public/cart.php?remove={$id}">
+                        <span class="glyphicon glyphicon-remove" ></span> </a> </td>
+                    </tr>
+DELIMETER;
+                    echo $produit;
+            }
+        }
+    }
+
+}
+
+function show_paypal(){
+
 }
 
 

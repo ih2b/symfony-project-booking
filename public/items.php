@@ -18,7 +18,7 @@
          <?php include( "../resource/categorie.php");?>
         <!-- /.col-lg-3 -->
 <?php 
-$query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id'])."");
+$query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id'])." ");
     confirm($query);
     while ($data = fetch_array($query)):
       ?>
@@ -30,7 +30,7 @@ $query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id
               <h3 class="card-title"><?php echo $data['produit_titre']?></h3>
               <h4><?php echo $data['produit_prix']?> Dinar </h4>
               <p class="card-text"><?php echo $data['produit_desc']?></p>
-              <a href="#" class="btn btn-primary">RESERVE</a>
+              <a class="btn btn-primary" target="_blank" href="cart.php?id= <?php echo $data['produit_id'] ?>">RESERVE</a>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
             </div>
