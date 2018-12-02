@@ -86,7 +86,7 @@ DELIMETER;
     confirm($query);
     while ($data = fetch_array($query)){
         $cat=<<<DELIMETER
-<a href='category.php?id={$data['id_categorie']}' class='list-group-item'>{$data['titre_categorie']}</a>
+<a href='category.php?id={$data['id_categorie']}' class='list-group-item list-group-item-action'>{$data['titre_categorie']}</a>
 DELIMETER;
             echo $cat;
     }
