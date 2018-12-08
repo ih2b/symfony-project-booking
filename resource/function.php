@@ -171,6 +171,37 @@ function checkReservation(){
     }
 }
 
+
+function register_user(){
+    if(isset($_POST['submit'])){
+        $userprenom = escape_string($_POST['prenom']);
+        $usernom = escape_string($_POST['nom']);
+        $useremail = escape_string($_POST['email']);
+        $userphone = escape_string($_POST['phone']);
+        $password = escape_string($_POST['txt_upass']);
+
+
+$query = query("SELECT * FROM users WHERE user_name = '{$userprenom}' AND nom = '{$usernom}'AND user_email = '{$useremail}'");
+        confirm($query);
+
+         if(mysqli_num_rows($query) == 0){
+                    $query = query("INSERT INTO users (user_name, nom, user_email, tel, user_password) VALUES('{$userprenom}','{$usernom}','{$useremail}','{$userphone}','{$password}')");
+                    confirm($query);
+                   set_message("CREATION AVEC SUCCESS!");
+                   redirect("login.php");
+
+        }
+         else{
+            set_message("you hav an accout");
+            redirect("login.php");
+        }
+
+       
+
+
+    }
+}
+
 function set_message($msg){
     if(!empty($msg)){
         $_SESSION['message']=$msg;
