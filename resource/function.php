@@ -99,15 +99,31 @@ function login_user(){
         redirect("../public/index.php");
     }
     if(isset($_POST['submit'])){
-        $username = escape_string($_POST['username']);
+        $name = escape_string($_POST['username']);
         $password = escape_string($_POST['password']);
+        $admin = $_POST['admin'];
+        if ($admin == "on"){
+            $query = query("SELECT * FROM admin WHERE admin_name = '{$name}' AND admin_password = '{$password}'");
+            confirm($query);
 
-        $query = query("SELECT * FROM users WHERE user_name = '{$username}' AND user_password = '{$password}'");
-        confirm($query);
+            if(mysqli_num_rows($query) == 0){
+                set_message("Wrong!");
+                redirect("../public/login.php");
 
-        if(mysqli_num_rows($query) == 0){
+            }
+            else{
+                $data = mysqli_fetch_array($query);
+                $_SESSION['admin_id']=$data['admin_id'];
+                redirect("../public/admin/index.php");
+            }
+        }
+        else{
+            $query = query("SELECT * FROM users WHERE user_name = '{$name}' AND user_password = '{$password}'");
+            confirm($query);
+
+            if(mysqli_num_rows($query) == 0){
             set_message("Wrong!");
-            redirect("login.php");
+            redirect("../public/login.php");
 
         }
         else{
@@ -115,6 +131,7 @@ function login_user(){
             $_SESSION['user_id']=$data['user_id'];
             redirect("index.php");
         }
+    }
     }
 }
 
