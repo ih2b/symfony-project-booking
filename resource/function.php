@@ -192,7 +192,7 @@ $query = query("SELECT * FROM users WHERE user_name = '{$userprenom}' AND nom = 
 
         }
          else{
-            set_message("you hav an accout");
+            set_message("you have an accout");
             redirect("login.php");
         }
 
@@ -282,5 +282,53 @@ function show_paypal(){
 
 }
 
+
+function show_product_category_title($product_category_id){
+    $category_query = query("SELECT * FROM categorie WHERE id_categorie = '{$product_category_id}' ");
+    confirm($category_query);
+    while($category_row = fetch_array($category_query)) {
+        return $category_row['titre_categorie'];
+    }
+}
+
+
+function get_products_in_admin(){
+
+
+    $query = query(" SELECT * FROM produit");
+    confirm($query);
+
+    while($row = fetch_array($query)) {
+
+        $category = show_product_category_title($row['produit_categorie_id']);
+
+
+        $product = <<<DELIMETER
+
+        <tr>
+            <td>{$row['produit_id']}</td>
+
+            <td>
+
+             <a href="index.php?edit_product&id={$row['produit_id']}"><p>{$row['produit_titre']}</p></a>
+
+            <div>
+
+            <img width='100' src="http://placehold.it/300/300" alt="">
+
+            </div>
+            </td>
+            <td>{$category}</td>
+            <td>{$row['produit_prix']}</td>
+            <td>{$row['produit_desc']}</td>
+             <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['produit_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+
+DELIMETER;
+
+        echo $product;
+
+    }
+}
 
 ?>
