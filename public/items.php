@@ -5,7 +5,7 @@
  <?php include("../resource/head.php");?>
 
   <body>
-    <?php include("../resource/head.php");?>
+    <?php $_SESSION['user_id']=0; ?>
 
     <!-- Navigation -->
    <?php include( "../resource/top_nav.php");?>
@@ -30,7 +30,12 @@ $query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id
               <h3 class="card-title"><?php echo $data['produit_titre']?></h3>
               <h4><?php echo $data['produit_prix']?> Dinar </h4>
               <p class="card-text"><?php echo $data['produit_desc']?></p>
-              <a class="btn btn-primary" target="_blank" href="cart.php?id= <?php echo $data['produit_id'] ?>">RESERVE</a>
+                <form class="" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <input id="date" type="date" class="filter-price filter form-control" name="date">
+                    </div>
+                </form>
+              <a class="btn btn-primary" target="_blank" href="cart.php?id= <?php echo $data['produit_id'] ?>?date">RESERVE</a>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
             </div>

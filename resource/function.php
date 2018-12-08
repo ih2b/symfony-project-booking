@@ -94,12 +94,17 @@ DELIMETER;
 
 
 function login_user(){
+    if ((isset($_GET['id']))&&(escape_string($_GET['id']) == "0")){
+        $_SESSION['user_id'] = 0;
+        redirect("../public/index.php");
+    }
     if(isset($_POST['submit'])){
         $username = escape_string($_POST['username']);
         $password = escape_string($_POST['password']);
 
         $query = query("SELECT * FROM users WHERE user_name = '{$username}' AND user_password = '{$password}'");
         confirm($query);
+        $data = mysqli_fetch_array($query);
 
         if(mysqli_num_rows($query) == 0){
             set_message("Wrong!");
@@ -108,6 +113,7 @@ function login_user(){
         }
         else{
             set_message("Welcome {$username}");
+            $_SESSION['user_id']=$data['user_id'];
             redirect("index.php");
         }
     }
