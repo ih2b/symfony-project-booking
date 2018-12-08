@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82169ea1-0255-4654-9ba3-d85275291667" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/resource/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/top_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/resource/top_nav.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,23 +29,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="40" />
+          <entry key="php" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="40" />
+          <entry key="PHP" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="5850" />
+          <entry key="php" value="6370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="20" />
-          <entry key="PHP" value="5808" />
+          <entry key="PHP" value="6328" />
           <entry key="SQL" value="22" />
         </counts>
       </usages-collector>
@@ -56,34 +53,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resource/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+            <state relative-caret-position="463">
+              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/admin/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5661">
-              <caret line="333" lean-forward="true" selection-start-line="333" selection-end-line="333" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resource/head.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resource/top_nav.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -95,8 +74,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/[Tutsgalaxy.com] - PHP for Beginners How to Build an E-Commerce Store/01 Setting Up Some Things/004 Student-Project-Files-Php/student_project_files_php/admin/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6392">
-              <caret line="376" lean-forward="true" selection-start-line="376" selection-end-line="386" />
+            <state relative-caret-position="221">
+              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/checkout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/[Tutsgalaxy.com] - PHP for Beginners How to Build an E-Commerce Store/01 Setting Up Some Things/004 ecom-full-project/ecom/public/admin/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="52" column="41" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -122,7 +119,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/items.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="272">
               <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
             </state>
           </provider>
@@ -169,8 +166,9 @@
         <option value="$PROJECT_DIR$/public/admin/resource/footer.php" />
         <option value="$PROJECT_DIR$/public/admin/index.php" />
         <option value="$PROJECT_DIR$/public/login.php" />
-        <option value="$PROJECT_DIR$/resource/function.php" />
         <option value="$PROJECT_DIR$/resource/top_nav.php" />
+        <option value="$USER_HOME$/Downloads/[Tutsgalaxy.com] - PHP for Beginners How to Build an E-Commerce Store/01 Setting Up Some Things/004 Student-Project-Files-Php/student_project_files_php/admin/index.php" />
+        <option value="$PROJECT_DIR$/resource/function.php" />
       </list>
     </option>
   </component>
@@ -180,7 +178,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="215" />
     <option name="y" value="-8" />
     <option name="width" value="1346" />
@@ -204,6 +202,12 @@
               <item name="booking" type="b2602c69:ProjectViewProjectNode" />
               <item name="booking" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="booking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="booking" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="booking" type="b2602c69:ProjectViewProjectNode" />
@@ -259,15 +263,15 @@
       <workItem from="1543698070745" duration="7451000" />
       <workItem from="1543751887727" duration="12809000" />
       <workItem from="1543842156033" duration="778000" />
-      <workItem from="1544190039057" duration="27029000" />
+      <workItem from="1544190039057" duration="30361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72041000" />
+    <option name="totallyTimeSpent" value="75373000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -359,13 +363,6 @@
         <state relative-caret-position="-1529" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/checkout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/cart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -401,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
@@ -419,13 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/items.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -445,8 +428,15 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/[Tutsgalaxy.com] - PHP for Beginners How to Build an E-Commerce Store/01 Setting Up Some Things/004 Student-Project-Files-Php/student_project_files_php/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6392">
-          <caret line="376" lean-forward="true" selection-start-line="376" selection-end-line="386" />
+        <state relative-caret-position="221">
+          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/[Tutsgalaxy.com] - PHP for Beginners How to Build an E-Commerce Store/01 Setting Up Some Things/004 ecom-full-project/ecom/public/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -454,6 +444,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/items.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/checkout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
         </state>
       </provider>
     </entry>

@@ -141,19 +141,26 @@ function checkReservation(){
             $date = date('Y-m-d', strtotime($_POST['date']));
             date_default_timezone_set('Africa/Tunis');
             $cDate = date('Y-m-d', time());
-            if($date > $cDate){
-                $query = query("SELECT * FROM reservation WHERE (date_reservation ='{$date}' AND produit_id = '{$produit_id}')");
-                confirm($query);
+            $dateDiff = date_diff(date_create($date),date_create($cDate))->format("%a");
+            if($dateDiff>0 AND $date > $cDate){
+                if ($dateDiff>7){
+                    $query = query("SELECT * FROM reservation WHERE (date_reservation ='{$date}' AND produit_id = '{$produit_id}')");
+                    confirm($query);
 
-                if (mysqli_num_rows($query )!=0){
-                    set_message("La salle est deja reservé à cette date");
-                    redirect("../public/items?id={$produit_id}");
+                    if (mysqli_num_rows($query )!=0){
+                        set_message("La salle est deja reservé à cette date");
+                        redirect("../public/items?id={$produit_id}");
+                    }
+                    else{
+                        $query2 =query("INSERT INTO reservation(user_id, produit_id, date_reservation) 
+                                                VALUES ('{$_SESSION['user_id']}','{$produit_id}','{$date}')");
+                        confirm($query2);
+                        set_message("La reservation est faite avec succes!");
+                        redirect("../public/items?id={$produit_id}");
+                    }
                 }
                 else{
-                    $query2 =query("INSERT INTO reservation(user_id, produit_id, date_reservation) 
-                                            VALUES ('{$_SESSION['user_id']}','{$produit_id}','{$date}')");
-                    confirm($query2);
-                    set_message("La reservation est faite avec succes!");
+                    set_message("Vous ne pouvez pas reservez une semaine d'avant!");
                     redirect("../public/items?id={$produit_id}");
                 }
             }
@@ -220,9 +227,23 @@ DELIMETER;
             echo $produit;
     }
     if(isset($_GET['remove'])){
-        $query2 = query("DELETE FROM reservation WHERE reservation_id = " . escape_string($_GET['remove']) . ";");
-        $_SESSION['produit_' . $_GET['remove']] = 0;
-        redirect("../public/checkout.php");
+        $dateQuery = query("SELECT * FROM reservation WHERE" . escape_string($_GET['remove']) . ";");
+        confirm($dateQuery);
+        $data = fetch_array($dateQuery);
+        $date = date('Y-m-d', strtotime($data['date_reservation']));
+        date_default_timezone_set('Africa/Tunis');
+        $cDate = date('Y-m-d', time());
+        $dateDiff = date_diff(date_create($date),date_create($cDate))->format("%a");
+        if ($dateDiff > 7){
+            $query2 = query("DELETE FROM reservation WHERE reservation_id = " . escape_string($_GET['remove']) . ";");
+            confirm($query2);
+            set_message("La reservation N" . $data['reservation_id'] . " est annulée!");
+            redirect("../public/checkout.php");
+        }
+        else{
+            set_message("La reservation N" . $data['reservation_id'] . " ne peut pas etre annulée avant une semaine!");
+            redirect("../public/checkout.php");
+        }
     }
 }
 
