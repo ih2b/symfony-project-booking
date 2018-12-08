@@ -93,9 +93,9 @@ DELIMETER;
 }
 
 
-function login_user(){
+function login(){
     if ((isset($_GET['id']))&&(escape_string($_GET['id']) == "0")){
-        $_SESSION['user_id'] = 0;
+        unset($_SESSION['user_id']);
         redirect("../public/index.php");
     }
     if(isset($_POST['submit'])){

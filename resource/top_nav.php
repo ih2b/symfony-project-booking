@@ -21,7 +21,7 @@
                   <a class="nav-link" href="../public/contact.php">Contact</a>
               </li>
               <?php
-              if ($_SESSION['user_id'] != 0) :?>
+              if (isset($_SESSION['user_id'])) :?>
               <li class="nav-item">
                   <a class="nav-link" href="../public/checkout.php">Checkout</a>
               </li>
@@ -49,7 +49,7 @@
      <h4 class="display-5">ORGANISER VOTRE MARIAGE EN LIGNE !</h4>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
         <?php
-        if ($_SESSION['user_id'] == 0) :?>
+        if (!isset($_SESSION['user_id'])) :?>
         <a href="../public/login.php" class="btn btn-primary btn-lg">Login </a>
         <a href="../public/registerform.php" class="btn btn-primary btn-lg">Register </a>
         <?php else: ?>

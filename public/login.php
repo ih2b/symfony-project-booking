@@ -11,7 +11,7 @@
             <div class="col-sm-4 col-sm-offset-5">
                 <form class="" action="" method="post" enctype="multipart/form-data">
 
-                    <?php login_user(); ?>
+                    <?php login(); ?>
 
                     <div class="form-group"><label for="">
                             username<input type="text" name="username" class="form-control"></label>
