@@ -1,5 +1,20 @@
+<?php require_once("../../resource/config.php");?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?php add_category(); ?>
+<?php include("resource/head.php");?>
+
+<?php $_SESSION['active_nav'] = 4; ?>
+<body>
+<div id="wrapper">
+
+    <?php include ("resource/nav_bar.php"); ?>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+        <?php add_category(); ?>
 <h1 class="page-header">
   Product Categories
 
@@ -48,3 +63,11 @@
         </table>
 
 </div>
+</div>
+</div>
+</div>
+<?php include( "resource/footer.php");?>
+
+</body>
+
+</html>

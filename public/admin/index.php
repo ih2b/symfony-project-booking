@@ -9,6 +9,8 @@
         redirect("../index.php");
     }
 ?>
+
+<?php $_SESSION['active_nav'] = 1; ?>
 <div id="wrapper">
 
     <?php include ("resource/nav_bar.php"); ?>

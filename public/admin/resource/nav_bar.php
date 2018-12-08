@@ -33,20 +33,19 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
+            <li <?php if ($_SESSION['active_nav'] == 1) : ?> class="active" <?php endif; ?> >
                 <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
-            <li>
+            <li<?php if ($_SESSION['active_nav'] == 2) : ?> class="active" <?php endif; ?> >
                 <a href="products.php"><i class="fa fa-fw fa-bar-chart-o"></i> Voir Produits</a>
             </li>
-            <li>
+            <li <?php if ($_SESSION['active_nav'] == 3) : ?> class="active" <?php endif; ?> >
                 <a href="add_product.php"><i class="fa fa-fw fa-table"></i> Ajouter Produit</a>
             </li>
-
-            <li>
+            <li <?php if ($_SESSION['active_nav'] == 4) : ?> class="active" <?php endif; ?> >
                 <a href="categories.php"><i class="fa fa-fw fa-desktop"></i> Categories</a>
             </li>
-            <li>
+            <li <?php if ($_SESSION['active_nav'] == 5) : ?> class="active" <?php endif; ?> >
                 <a href="users.php"><i class="fa fa-fw fa-wrench"></i>Users</a>
             </li>
 

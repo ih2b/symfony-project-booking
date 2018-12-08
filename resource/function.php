@@ -353,4 +353,16 @@ DELIMETER;
     }
 }
 
+
+function add_product(){
+
+}
+
+function add_category(){
+
+}
+
+function display_users(){
+
+}
 ?>
