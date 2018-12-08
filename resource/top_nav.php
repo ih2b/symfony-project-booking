@@ -26,7 +26,7 @@
                   <a class="nav-link" href="../public/checkout.php">Checkout</a>
               </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Profile</a>
+                      <a class="nav-link" href="../public/profil.php">Profile</a>
                   </li>
                   <li class="nav-item">
                   <a class="nav-link" href="../public/login.php?id=0">Logout</a>
@@ -45,24 +45,15 @@
     </nav>
 
     <!-- iheb: delete this after login and add the log out in navbar  -->
+    <?php if (!isset($_SESSION['user_id'])) :?>
     <div class="jumbotron my-4 container">
      <h4 class="display-5">ORGANISER VOTRE MARIAGE EN LIGNE !</h4>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-        <?php
-        if (!isset($_SESSION['user_id'])) :?>
+        
+        
         <a href="../public/login.php" class="btn btn-primary btn-lg">Login </a>
         <a href="../public/registerform.php" class="btn btn-primary btn-lg">Register </a>
-        <?php else: ?>
-        <?php
-        $query = query("SELECT user_name FROM users WHERE user_id={$_SESSION['user_id']} ;");
-        confirm($query);
-        $name = fetch_array($query);
-        ?>
-        <h4 class="display-5">Welcome <?php
-            $query = query("SELECT user_name FROM users WHERE user_id={$_SESSION['user_id']} ;");
-            confirm($query);
-            $name = fetch_array($query);
-            echo $name['user_name'];
-            ?></h4>
+    
+            </div>
         <?php endif; ?>
-      </div>
+      

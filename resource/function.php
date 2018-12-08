@@ -202,6 +202,28 @@ $query = query("SELECT * FROM users WHERE user_name = '{$userprenom}' AND nom = 
     }
 }
 
+
+
+function modify_profil(){
+    if(isset($_POST['submit'])){
+          
+         $userprenom = escape_string($_POST['prenom']);
+        $usernom = escape_string($_POST['nom']);
+        $useremail = escape_string($_POST['email']);
+        $userphone = escape_string($_POST['phone']);
+        $password = escape_string($_POST['txt_upass']);
+
+        
+            $query = query("UPDATE users SET user_name = '{$userprenom}' ,nom = '{$usernom}',user_email = '{$useremail}',tel = '{$userphone}',user_password= '{$password}' WHERE user_id='{$_SESSION['user_id']}';");
+        confirm($query);
+       
+                   redirect("index.php");
+        
+
+
+    }
+}
+
 function set_message($msg){
     if(!empty($msg)){
         $_SESSION['message']=$msg;
