@@ -5,7 +5,6 @@
  <?php include("../resource/head.php");?>
 
   <body>
-    <?php include("../resource/head.php");?>
 
     <!-- Navigation -->
    <?php include( "../resource/top_nav.php");?>
@@ -20,17 +19,25 @@
 <?php 
 $query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id'])." ");
     confirm($query);
-    while ($data = fetch_array($query)):
+    $data = fetch_array($query);
       ?>
         <div class="col-lg-9">
 
+          <h4 class="text-md-center -bold">  <?php display_message();?></h4>
           <div class="card mt-4">
             <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
             <div class="card-body">
               <h3 class="card-title"><?php echo $data['produit_titre']?></h3>
               <h4><?php echo $data['produit_prix']?> Dinar </h4>
               <p class="card-text"><?php echo $data['produit_desc']?></p>
-              <a class="btn btn-primary" target="_blank" href="cart.php?id= <?php echo $data['produit_id'] ?>">RESERVE</a>
+                <form class="" action="" method="post" enctype="multipart/form-data">
+                    <?php checkReservation(); ?>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <input type="date" class="filter-price filter form-control" name="date">
+                    </div>
+                    <button class="btn btn-primary" type="submit" name="submit">Reserve</button>
+
+                </form>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
             </div>
@@ -58,7 +65,6 @@ $query =query("SELECT * FROM produit WHERE produit_id=". escape_string($_GET['id
 
         </div>
         <!-- /.col-lg-9 -->
-<?php endwhile; ?>
       </div>
 
     </div>

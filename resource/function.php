@@ -41,7 +41,7 @@ function get_product(){
                   <p class="card-text">{$data['produit_desc']}</p>
                 </div>
                 <div class="card-footer">
-                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id= {$data['produit_id']} ">view more</a>
+                 <a class="btn btn-primary pull-right"target="_self" href="items.php?id={$data['produit_id']} ">view more</a>
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
               </div>
@@ -93,23 +93,74 @@ DELIMETER;
 }
 
 
-function login_user(){
+function login(){
+    if ((isset($_GET['id']))&&(escape_string($_GET['id']) == "0")){
+        unset($_SESSION['user_id']);
+        redirect("../public/index.php");
+    }
     if(isset($_POST['submit'])){
-        $username = escape_string($_POST['username']);
+        $name = escape_string($_POST['username']);
         $password = escape_string($_POST['password']);
+        $admin = $_POST['admin'];
+        if ($admin == "on"){
+            $query = query("SELECT * FROM admin WHERE admin_name = '{$name}' AND admin_password = '{$password}'");
+            confirm($query);
 
-        $query = query("SELECT * FROM users WHERE user_name = '{$username}' AND user_password = '{$password}'");
-        confirm($query);
+            if(mysqli_num_rows($query) == 0){
+                set_message("Wrong!");
+                redirect("../public/login.php");
 
-        if(mysqli_num_rows($query) == 0){
+            }
+            else{
+                $data = mysqli_fetch_array($query);
+                $_SESSION['admin_id']=$data['admin_id'];
+                redirect("../public/admin/index.php");
+            }
+        }
+        else{
+            $query = query("SELECT * FROM users WHERE user_name = '{$name}' AND user_password = '{$password}'");
+            confirm($query);
+
+            if(mysqli_num_rows($query) == 0){
             set_message("Wrong!");
-            redirect("login.php");
+            redirect("../public/login.php");
 
         }
         else{
-            set_message("Welcome {$username}");
+            $data = mysqli_fetch_array($query);
+            $_SESSION['user_id']=$data['user_id'];
             redirect("index.php");
         }
+    }
+    }
+}
+
+function checkReservation(){
+        $produit_id = $_GET['id'];
+        if (isset($_POST['submit'])){
+            $date = date('Y-m-d', strtotime($_POST['date']));
+            date_default_timezone_set('Africa/Tunis');
+            $cDate = date('Y-m-d', time());
+            if($date > $cDate){
+                $query = query("SELECT * FROM reservation WHERE (date_reservation ='{$date}' AND produit_id = '{$produit_id}')");
+                confirm($query);
+
+                if (mysqli_num_rows($query )!=0){
+                    set_message("La salle est deja reservé à cette date");
+                    redirect("../public/items?id={$produit_id}");
+                }
+                else{
+                    $query2 =query("INSERT INTO reservation(user_id, produit_id, date_reservation) 
+                                            VALUES ('{$_SESSION['user_id']}','{$produit_id}','{$date}')");
+                    confirm($query2);
+                    set_message("La reservation est faite avec succes!");
+                    redirect("../public/items?id={$produit_id}");
+                }
+            }
+            else{
+                set_message("Veuillez saisir une date valide!");
+                redirect("../public/items?id={$produit_id}");
+            }
     }
 }
 
@@ -182,28 +233,28 @@ function send_message(){
 function cart(){
     $_SESSION['item_quantity'] =0;
     $_SESSION['item_total'] = 0;
-    foreach ($_SESSION as $name =>$value){
-        if($value > 0) {
-            if (substr($name, 0, 8) == 'produit_') {
-                $id = substr($name, 8, strlen($name)-8);
-                $query = query("SELECT * FROM produit WHERE produit_id = " . escape_string($id) . ";");
-                confirm($query);
-                $row = fetch_array($query);
-                $_SESSION['item_quantity'] +=1;
-                $_SESSION['item_total'] += $row['produit_prix'];
-                    $produit = <<<DELIMETER
-                    <tr>
-                        <td><a href="../public/items.php?id= {$row['produit_id']}"> {$row['produit_titre']}</a></td>
-                        <td>{$row['produit_prix']}</td>
-                        <td><a class="btn btn-danger" href="../public/cart.php?remove={$id}">
-                        <span class="glyphicon glyphicon-remove" ></span> </a> </td>
-                    </tr>
+    $query = query("SELECT * FROM reservation,produit WHERE reservation.user_id = {$_SESSION['user_id']} AND produit.produit_id = reservation.produit_id;");
+    confirm($query);
+    while ($row = fetch_array($query)){
+        $_SESSION['item_quantity'] +=1;
+        $_SESSION['item_total'] += $row['produit_prix'];
+            $produit = <<<DELIMETER
+            <tr>
+                <td>{$row['reservation_id']}</td>
+                <td><a href="../public/items.php?id= {$row['produit_id']}"> {$row['produit_titre']}</a></td>
+                <td>{$row['date_reservation']}</td>
+                <td>{$row['produit_prix']}</td>
+                <td><a class="btn btn-danger" href="../public/checkout.php?remove={$row['reservation_id']}">
+                <span class="glyphicon glyphicon-remove" >X</span> </a> </td>
+            </tr>
 DELIMETER;
-                    echo $produit;
-            }
-        }
+            echo $produit;
     }
-
+    if(isset($_GET['remove'])){
+        $query2 = query("DELETE FROM reservation WHERE reservation_id = " . escape_string($_GET['remove']) . ";");
+        $_SESSION['produit_' . $_GET['remove']] = 0;
+        redirect("../public/checkout.php");
+    }
 }
 
 function show_paypal(){
