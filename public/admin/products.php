@@ -3,8 +3,6 @@
 <html lang="en">
 
 <?php include("resource/head.php");?>
-
-<?php $_SESSION['active_nav'] = 2; ?>
 <body>
 <div id="wrapper">
 
@@ -41,6 +39,7 @@
 
 </body>
 
+</html>
 </html>
 
 

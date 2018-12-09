@@ -1,66 +1,43 @@
-<?php require_once("../../resource/config.php");?>
-<!DOCTYPE html>
-<html lang="en">
 
-<?php include("resource/head.php");?>
+                    <div class="col-lg-12">
+                      
 
-<?php $_SESSION['active_nav'] = 5; ?>
-<body>
-<div id="wrapper">
+                        <h1 class="page-header">
+                            Users
+                         
+                        </h1>
+                          <p class="bg-success">
+                         
+                        </p>
 
-    <?php include ("resource/nav_bar.php"); ?>
-
-    <div id="page-wrapper">
-
-        <div class="container-fluid">
-
-        <div class="col-lg-12">
+                        <a href="index.php?add_user" class="btn btn-primary">Add User</a>
 
 
-    <h1 class="page-header">
-        Users
+                        <div class="col-md-12">
 
-    </h1>
-      <p class="bg-success">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                            
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-    </p>
-
-    <a href="index.php?add_user" class="btn btn-primary">Add User</a>
-
-
-    <div class="col-md-12">
-
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>Email</th>
-
-                </tr>
-            </thead>
-            <tbody>
-
-                    <?php display_users(); ?>
+                                        <?php display_users(); ?>
 
 
+                                    
+                                </tbody>
+                            </table> <!--End of Table-->
+                        
 
-            </tbody>
-        </table> <!--End of Table-->
+                        </div>
 
-
-    </div>
-
-
-</div>
-
-</div>
-</div>
-</div>
-<?php include( "resource/footer.php");?>
-
-</body>
-
-</html>
+                        
+                    </div>
+    
 
 
